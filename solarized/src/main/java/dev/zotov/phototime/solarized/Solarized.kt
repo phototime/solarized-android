@@ -2,7 +2,6 @@ package dev.zotov.phototime.solarized
 
 import androidx.annotation.FloatRange
 import java.time.LocalDateTime
-import java.util.*
 
 /**
  * Main class that used to calculate sun phases like golden hour, blue hour, sunrise, sunset etc
