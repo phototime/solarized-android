@@ -13,13 +13,13 @@ class AlgorithmUnitTest {
         val latitude = 47.49801
         val longitude = 19.03991
 
-        val actual = Algorithm.calculate(
+        val actual = algorithm(
             time = time,
             twilight = twilight,
             date = date,
             latitude = latitude,
             longitude = longitude
-        );
+        )
         assertEquals(expectedDate, actual)
     }
 
@@ -57,5 +57,4 @@ class AlgorithmUnitTest {
         test(DateTime.Evening, Twilight.Custom(-4.0), 1549902009)
         test(DateTime.Evening, Twilight.Custom(-8.0), 1549903475)
     }
-
 }

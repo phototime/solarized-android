@@ -18,7 +18,7 @@ class Solarized(
 ) {
 
     fun getMorning(): LocalDateTime? {
-        return Algorithm.calculate(
+        return algorithm(
             latitude = latitude,
             longitude = longitude,
             time = DateTime.Morning,
@@ -26,23 +26,4 @@ class Solarized(
             date = date
         )
     }
-}
-
-internal sealed class Twilight {
-    object Official : Twilight()
-    object Civil : Twilight()
-    object Nautical : Twilight()
-    object Astronomical : Twilight()
-    data class Custom(val value: Double) : Twilight()
-
-    val degrees: Double
-        get() {
-            return when (this) {
-                is Official -> -35.0 / 60.0
-                is Civil -> -6.0
-                is Nautical -> -12.0
-                is Astronomical -> -18.0
-                is Custom -> this.value
-            }
-        }
 }
