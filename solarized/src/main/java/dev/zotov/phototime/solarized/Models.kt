@@ -37,13 +37,13 @@ sealed class SunPhase {
     data class Day(val start: LocalDateTime, val end: LocalDateTime): SunPhase()
 
     /**
-     * When the Sun below the horizon. Angle is -35.0 / 60.0
+     * When the Sun below the horizon. Angle is Official
      * @property date when sun is 35.0 / 60.0deg below horizon
      */
     data class Sunset(val date: LocalDateTime): SunPhase()
 
     /**
-     * When the Sun below the horizon. Angle is -18.0
+     * When last light visible to viewer. Angle is -18.0
      * @property date when sun is 18.0 below horizon
      */
     data class LastLight(val date: LocalDateTime): SunPhase()
