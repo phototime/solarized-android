@@ -47,8 +47,8 @@ afterEvaluate {
         publications {
             release (MavenPublication) {
                 from components.release
-                groupId = "dev.zotov.phototime.solarized"
-                artifactId = "final"
+                groupId = "dev.zotov."
+                artifactId = "solarized"
                 version = "1.0"
             }
         }
