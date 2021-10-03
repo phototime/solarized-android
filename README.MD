@@ -2,7 +2,7 @@
 
 This is Android library to calculate sun phases like golden hour, blue hour, sunrise, sunset etc
 
-### Features
+## Features
 - first / last light
 - golden hour
 - blue hour
@@ -10,7 +10,7 @@ This is Android library to calculate sun phases like golden hour, blue hour, sun
 - day
 
 
-### How to use?
+## How to use?
 ```kotlin
 import dev.zotov.phototime.solarized
 
@@ -37,7 +37,7 @@ val day = Solarized(latitude, longitude, date).day
 println(morningGoldenHour.start) // LocalDateTime at UTC
 ```
 
-### How to install?
+## How to install?
 **Step 1**. Add the JitPack repository to your top-level build file 
 ```gradle
 allprojects {
@@ -53,5 +53,9 @@ dependencies {
 }
 ```
 
-### Algorithm
+## Algorithm
 Realization by [@BinaryBirds](https://github.com/BinaryBirds), [original repo](https://github.com/BinaryBirds/Sunlight)
+
+## License
+
+[WTFPL](LICENSE) - Do what the fuck you want to.
