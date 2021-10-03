@@ -1,4 +1,6 @@
 # Solarized
+[![](https://jitpack.io/v/phototime/solarized-android.svg)](https://jitpack.io/#phototime/solarized-android)
+
 
 This is Android library to calculate sun phases like golden hour, blue hour, sunrise, sunset etc
 
