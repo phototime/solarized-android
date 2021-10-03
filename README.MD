@@ -37,5 +37,21 @@ val day = Solarized(latitude, longitude, date).day
 println(morningGoldenHour.start) // LocalDateTime at UTC
 ```
 
+### How to install?
+**Step 1**. Add the JitPack repository to your top-level build file 
+```gradle
+allprojects {
+  repositories {
+    maven { url 'https://jitpack.io' }
+  }
+}
+```
+**Step 2**. Add the dependency to your module
+```gradle
+dependencies {
+  implementation 'com.github.phototime:solarized-android:1.0.0'
+}
+```
+
 ### Algorithm
 Realization by [@BinaryBirds](https://github.com/BinaryBirds), [original repo](https://github.com/BinaryBirds/Sunlight)
