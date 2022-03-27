@@ -2,7 +2,11 @@ package dev.zotov.phototime.solarized
 
 import androidx.annotation.FloatRange
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.ZoneOffset
+import java.time.temporal.TemporalUnit
+import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.math.*
 
 /**
@@ -62,7 +66,8 @@ internal fun algorithm(
     val zenith = -1 * twilight.degrees + 90
 
     // local hour angle
-    val cosH = (cos(zenith.radians) - (sinDec * sin(latitude.radians))) / (cosDec * cos(latitude.radians))
+    val cosH =
+        (cos(zenith.radians) - (sinDec * sin(latitude.radians))) / (cosDec * cos(latitude.radians))
 
     // no transition
     if (cosH > 1 || cosH < -1) return null
@@ -86,7 +91,12 @@ internal fun algorithm(
         else -> date
     }
 
-    return setDate.withHour(hour).withMinute(minute).withSecond(second)
+    val timezoneOffset = TimeUnit.HOURS.convert(
+        TimeZone.getDefault().rawOffset.toLong(),
+        TimeUnit.MILLISECONDS
+    )
+
+    return setDate.withHour(hour).withMinute(minute).withSecond(second).plusHours(timezoneOffset)
 }
 
 
