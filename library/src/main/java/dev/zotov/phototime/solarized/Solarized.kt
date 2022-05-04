@@ -106,14 +106,14 @@ class Solarized(
                 date = date,
                 latitude = latitude,
                 longitude = longitude,
-                twilight = Twilight.Custom(-4.0),
+                twilight = Twilight.Custom(6.0),
             ) ?: return null
             val goldenHourEndDate = algorithm(
                 time = time,
                 date = date,
                 latitude = latitude,
                 longitude = longitude,
-                twilight = Twilight.Custom(6.0),
+                twilight = Twilight.Custom(-4.0),
             ) ?: return null
 
             return if (time == DateTime.Evening)
@@ -139,14 +139,14 @@ class Solarized(
                 date = date,
                 latitude = latitude,
                 longitude = longitude,
-                twilight = Twilight.Custom(-6.0),
+                twilight = Twilight.Custom(-4.0),
             ) ?: return null
             val blueHourEndDate = algorithm(
                 time = time,
                 date = date,
                 latitude = latitude,
                 longitude = longitude,
-                twilight = Twilight.Custom(-4.0),
+                twilight = Twilight.Custom(-7.9),
             ) ?: return null
 
             return if (time == DateTime.Evening)
