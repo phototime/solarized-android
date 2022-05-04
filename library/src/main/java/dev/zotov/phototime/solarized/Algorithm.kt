@@ -144,7 +144,7 @@ internal sealed class Twilight {
                 is Official -> -35.0 / 60.0
                 is Civil -> -6.0
                 is Nautical -> -12.0
-                is Astronomical -> -18.0
+                is Astronomical -> -15.0
                 is Custom -> this.value
             }
         }

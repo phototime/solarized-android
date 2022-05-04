@@ -63,5 +63,4 @@ class SolarizedUnitTest {
 
         Assert.assertEquals(expected, solarized.list)
     }
-
 }
