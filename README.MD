@@ -51,7 +51,7 @@ allprojects {
 **Step 2**. Add the dependency to your module
 ```gradle
 dependencies {
-  implementation 'com.github.phototime:solarized-android:1.0.5'
+  implementation 'com.github.phototime:solarized-android:1.0.6'
 }
 ```
 
