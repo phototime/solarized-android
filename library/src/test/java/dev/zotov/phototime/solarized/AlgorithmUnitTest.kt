@@ -4,6 +4,7 @@ import org.junit.Test
 import org.junit.Assert.*
 import java.time.Instant
 import java.time.ZoneOffset
+import java.util.*
 
 class AlgorithmUnitTest {
 
@@ -12,13 +13,15 @@ class AlgorithmUnitTest {
         val expectedDate = Instant.ofEpochSecond(expected).atZone(ZoneOffset.UTC).toLocalDateTime()
         val latitude = 47.49801
         val longitude = 19.03991
+        val timeZone = TimeZone.getTimeZone("CEST")
 
         val actual = algorithm(
             time = time,
             twilight = twilight,
             date = date,
             latitude = latitude,
-            longitude = longitude
+            longitude = longitude,
+            timeZone = timeZone
         )
         assertEquals(expectedDate, actual)
     }

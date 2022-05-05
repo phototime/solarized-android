@@ -2,6 +2,7 @@ package dev.zotov.phototime.solarized
 
 import androidx.annotation.FloatRange
 import java.time.LocalDateTime
+import java.util.*
 
 /**
  * Main class that used to calculate sun phases like golden hour, blue hour, sunrise, sunset etc
@@ -13,7 +14,8 @@ import java.time.LocalDateTime
 class Solarized(
     @FloatRange(from = 0.0, to = 90.0) val latitude: Double,
     @FloatRange(from = 0.0, to = 180.0) val longitude: Double,
-    val date: LocalDateTime
+    val date: LocalDateTime,
+    val timeZone: TimeZone = TimeZone.getDefault()
 ) {
 
     val list: SunPhaseList?
@@ -24,6 +26,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(-7.9),
+                timeZone = timeZone,
             ) ?: return null
 
             val blueHourMorningEndDate = algorithm(
@@ -33,6 +36,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(-4.0),
+                timeZone = timeZone,
             ) ?: return null
 
             val goldenHourMorningEndDate = algorithm(
@@ -42,6 +46,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(6.0),
+                timeZone = timeZone,
             ) ?: return null
 
             val goldenHourEveningStartDate = algorithm(
@@ -51,6 +56,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(6.0),
+                timeZone = timeZone,
             ) ?: return null
 
             val goldenHourEveningEndDate = algorithm(
@@ -60,6 +66,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(-4.0),
+                timeZone = timeZone,
             ) ?: return null
 
             val blueHourEveningEndDate = algorithm(
@@ -68,6 +75,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(-7.9),
+                timeZone = timeZone,
             ) ?: return null
 
             return SunPhaseList(
@@ -107,6 +115,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(6.0),
+                timeZone = timeZone,
             ) ?: return null
             val goldenHourEndDate = algorithm(
                 time = time,
@@ -114,6 +123,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(-4.0),
+                timeZone = timeZone,
             ) ?: return null
 
             return if (time == DateTime.Evening)
@@ -140,6 +150,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(-4.0),
+                timeZone = timeZone,
             ) ?: return null
             val blueHourEndDate = algorithm(
                 time = time,
@@ -147,6 +158,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(-7.9),
+                timeZone = timeZone,
             ) ?: return null
 
             return if (time == DateTime.Evening)
@@ -174,6 +186,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Astronomical,
+                timeZone = timeZone,
             ) ?: return null
             return SunPhase.FirstLight(firstLightDate)
         }
@@ -187,6 +200,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(-0.83),
+                timeZone = timeZone,
             ) ?: return null
             return SunPhase.Sunrise(sunriseDate)
         }
@@ -201,6 +215,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(6.0),
+                timeZone = timeZone,
             ) ?: return null
             val dayEndDate = algorithm(
                 time = DateTime.Evening,
@@ -208,6 +223,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Custom(6.0),
+                timeZone = timeZone,
             ) ?: return null
             return SunPhase.Day(dayStartDate, dayEndDate)
         }
@@ -221,6 +237,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Official,
+                timeZone = timeZone,
             ) ?: return null
             return SunPhase.Sunset(sunsetDate)
         }
@@ -234,6 +251,7 @@ class Solarized(
                 latitude = latitude,
                 longitude = longitude,
                 twilight = Twilight.Astronomical,
+                timeZone = timeZone,
             ) ?: return null
             return SunPhase.LastLight(sunsetDate)
         }

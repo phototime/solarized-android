@@ -27,7 +27,8 @@ internal fun algorithm(
     date: LocalDateTime,
     @FloatRange(from = 0.0, to = 90.0) latitude: Double,
     @FloatRange(from = 0.0, to = 180.0) longitude: Double,
-    twilight: Twilight
+    twilight: Twilight,
+    timeZone: TimeZone
 ): LocalDateTime? {
 
     // first calculate the day of the year
@@ -92,7 +93,7 @@ internal fun algorithm(
     }
 
     val timezoneOffset = TimeUnit.HOURS.convert(
-        TimeZone.getDefault().rawOffset.toLong(),
+        timeZone.rawOffset.toLong(),
         TimeUnit.MILLISECONDS
     )
 
