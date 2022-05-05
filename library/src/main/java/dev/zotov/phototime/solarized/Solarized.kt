@@ -10,6 +10,7 @@ import java.util.*
  * @param latitude the latitude at which the device is located
  * @param longitude the longitude at which the device is located
  * @param date the date that will be used in the calculation of phases
+ * @param timeZone of LocalDateTime
  */
 class Solarized(
     @FloatRange(from = 0.0, to = 90.0) val latitude: Double,
@@ -18,6 +19,7 @@ class Solarized(
     val timeZone: TimeZone = TimeZone.getDefault()
 ) {
 
+    @Suppress("unused")
     val list: SunPhaseList?
         get() {
             val blueHourMorningStartDate = algorithm(
@@ -106,6 +108,7 @@ class Solarized(
             )
         }
 
+    @Suppress("unused")
     /** [SunPhase.GoldenHour] daylight is redder and softer than when the sun is higher in the sky */
     val goldenHour = object : TwiceADaySunPhases<SunPhase.GoldenHour> {
         private fun base(time: DateTime): SunPhase.GoldenHour? {
@@ -141,6 +144,7 @@ class Solarized(
             get() = base(DateTime.Evening)
     }
 
+    @Suppress("unused")
     /** [SunPhase.BlueHour] when the Sun is at a significant depth below the horizon but the viewer can see light */
     val blueHour = object : TwiceADaySunPhases<SunPhase.BlueHour> {
         private fun base(time: DateTime): SunPhase.BlueHour? {
@@ -177,6 +181,7 @@ class Solarized(
     }
 
 
+    @Suppress("unused")
     /** [SunPhase.FirstLight] when first light come to viewer */
     val firstLight: SunPhase.FirstLight?
         get() {
@@ -191,6 +196,7 @@ class Solarized(
             return SunPhase.FirstLight(firstLightDate)
         }
 
+    @Suppress("unused")
     /** [SunPhase.Sunrise] when the upper rim of the Sun appears on the horizon in the morning */
     val sunrise: SunPhase.Sunrise?
         get() {
@@ -206,6 +212,7 @@ class Solarized(
         }
 
 
+    @Suppress("unused")
     /** [SunPhase.Day] no soft light, just usual day light */
     val day: SunPhase.Day?
         get() {
@@ -228,6 +235,7 @@ class Solarized(
             return SunPhase.Day(dayStartDate, dayEndDate)
         }
 
+    @Suppress("unused")
     /** [SunPhase.Sunset] when the Sun below the horizon */
     val sunset: SunPhase.Sunset?
         get() {
@@ -242,6 +250,7 @@ class Solarized(
             return SunPhase.Sunset(sunsetDate)
         }
 
+    @Suppress("unused")
     /** [SunPhase.LastLight] When last light visible to viewer */
     val lastLight: SunPhase.LastLight?
         get() {
