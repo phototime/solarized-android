@@ -93,7 +93,7 @@ internal fun algorithm(
     }
 
     val timezoneOffset = TimeUnit.HOURS.convert(
-        timeZone.rawOffset.toLong(),
+        timeZone.getOffset(date.atZone(ZoneId.of(timeZone.id)).toInstant().toEpochMilli()).toLong(),
         TimeUnit.MILLISECONDS
     )
 
