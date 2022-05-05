@@ -40,8 +40,8 @@ class AlgorithmUnitTest {
 
     @Test
     fun testAstronomical() {
-        test(DateTime.Morning, Twilight.Astronomical, 1549858363)
-        test(DateTime.Evening, Twilight.Astronomical, 1549907056)
+        test(DateTime.Morning, Twilight.Astronomical, 1549859430)
+        test(DateTime.Evening, Twilight.Astronomical, 1549905989)
     }
 
     @Test
