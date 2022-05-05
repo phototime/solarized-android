@@ -23,7 +23,7 @@ class Solarized(
                 date = date,
                 latitude = latitude,
                 longitude = longitude,
-                twilight = Twilight.Custom(-6.0),
+                twilight = Twilight.Custom(-7.9),
             ) ?: return null
 
             val blueHourMorningEndDate = algorithm(
@@ -67,7 +67,7 @@ class Solarized(
                 date = date,
                 latitude = latitude,
                 longitude = longitude,
-                twilight = Twilight.Custom(-6.0),
+                twilight = Twilight.Custom(-7.9),
             ) ?: return null
 
             return SunPhaseList(
