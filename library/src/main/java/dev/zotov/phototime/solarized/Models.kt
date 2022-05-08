@@ -53,7 +53,7 @@ sealed class SunPhase {
  * List, containing all sun phases during daytime
  */
 data class SunPhaseList(
-    val firstLight: SunPhase.FirstLight,
+    val firstLight: SunPhase.FirstLight?,
     val morningBlueHour: SunPhase.BlueHour,
     val sunrise: SunPhase.Sunrise,
     val morningGoldenHour: SunPhase.GoldenHour,
@@ -61,6 +61,6 @@ data class SunPhaseList(
     val eveningGoldenHour: SunPhase.GoldenHour,
     val sunset: SunPhase.Sunset,
     val eveningBlueHour: SunPhase.BlueHour,
-    val lastLight: SunPhase.LastLight,
+    val lastLight: SunPhase.LastLight?,
 )
 

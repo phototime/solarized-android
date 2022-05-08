@@ -13,8 +13,8 @@ import java.util.*
  * @param timeZone of LocalDateTime
  */
 class Solarized(
-    @FloatRange(from = 0.0, to = 90.0) val latitude: Double,
-    @FloatRange(from = 0.0, to = 180.0) val longitude: Double,
+    @FloatRange(from = -90.0, to = 90.0) val latitude: Double,
+    @FloatRange(from = -180.0, to = 180.0) val longitude: Double,
     val date: LocalDateTime,
     val timeZone: TimeZone = TimeZone.getDefault()
 ) {
@@ -81,7 +81,7 @@ class Solarized(
             ) ?: return null
 
             return SunPhaseList(
-                firstLight = firstLight ?: return null,
+                firstLight = firstLight,
                 morningBlueHour = SunPhase.BlueHour(
                     start = blueHourMorningStartDate,
                     end = blueHourMorningEndDate
@@ -104,7 +104,7 @@ class Solarized(
                     start = goldenHourEveningEndDate,
                     end = blueHourEveningEndDate,
                 ),
-                lastLight = lastLight ?: return null,
+                lastLight = lastLight,
             )
         }
 

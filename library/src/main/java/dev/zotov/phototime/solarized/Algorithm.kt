@@ -25,8 +25,8 @@ import kotlin.math.*
 internal fun algorithm(
     time: DateTime,
     date: LocalDateTime,
-    @FloatRange(from = 0.0, to = 90.0) latitude: Double,
-    @FloatRange(from = 0.0, to = 180.0) longitude: Double,
+    @FloatRange(from = -90.0, to = 90.0) latitude: Double,
+    @FloatRange(from = -180.0, to = 180.0) longitude: Double,
     twilight: Twilight,
     timeZone: TimeZone
 ): LocalDateTime? {
